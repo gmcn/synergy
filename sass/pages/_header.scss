@@ -1,0 +1,463 @@
+.navbar-default .navbar-nav > li.menu-item-has-children a {
+  /*padding-right: 50px;*/
+}
+
+.navbar-default .navbar-nav > li.menu-item-has-children a:after {
+  content: " ";
+  color: #fff;
+  padding: 0 0 0 13px;
+  background-image: url(../images/nav_arrow_down.png);
+  background-repeat: no-repeat;
+}
+
+ul.nav li.menu-item-has-children:hover > ul.dropdown-menu {
+  @include md {
+    display: block !important;
+  }
+}
+
+.menu-toggle {
+  position: relative;
+  display: block;
+  width: 25px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.menu-toggle--white::before,
+.menu-toggle--white::after {
+  border-top: solid 3px #fff;
+}
+.menu-toggle--opened::before {
+  transform: translateY(2px);
+}
+.menu-toggle--opened::after {
+  transform: translateY(-2px);
+}
+.menu-toggle::before,
+.menu-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-top: solid 3px #000;
+  transition: border-top-color 0.3s ease, transform 0.3s ease;
+}
+.menu-toggle::before {
+  top: 0;
+}
+.menu-toggle::after {
+  bottom: 0;
+}
+.menu-toggle--white::before,
+.menu-toggle--white::after {
+  border-top: solid 3px #fff;
+}
+.menu-toggle:hover,
+.menu-toggle:focus {
+  outline: none;
+}
+.menu-toggle:hover::before,
+.menu-toggle:hover::after,
+.menu-toggle:focus::before,
+.menu-toggle:focus::after {
+  border-top-color: $color__secondary;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  overflow: auto;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  @include sm {
+    width: 56%;
+  }
+
+  @include md {
+    max-width: 500px;
+  }
+
+  &__wrapper {
+
+    margin-top: 40px;
+
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 80px 50px 10px;
+
+    @include md {
+      padding: 80px 100px 10px;
+    }
+
+  }
+
+  &--opened {
+    transform: translateX(0);
+  }
+
+  &__bottom {
+
+    margin-top: auto;
+
+  }
+
+  &__copy {
+    margin-bottom: 16px;
+    line-height: 1.71;
+    color: #999;
+    letter-spacing: 0.015em;
+
+    @include md {
+      margin-bottom: 4.44vh;
+    }
+
+    span {
+      color: #000;
+    }
+
+  }
+
+  &__dropdown {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+
+      font-size: 1.15em;
+      margin-bottom: 25px;
+
+      &.current-menu-item {
+
+        font-weight: 600;
+        position: relative;
+
+        &:before {
+          background: $color__secondary;
+          height: 7px;
+          width: 74px;
+          content: "";
+          display: block;
+          position: absolute;
+          left: -100px;
+          top: 10px;
+        }
+
+      }
+
+      a {
+        color: #000;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $color__secondary;
+        }
+
+      }
+
+    }
+
+
+  }
+
+  &__sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__subitem {
+    display: block;
+    margin-top: 16px;
+    line-height: 1 !important;
+
+    &:first-child {
+      margin-top: 20px;
+
+        @include md {
+          margin-top: 32px;
+        }
+
+    }
+
+  }
+
+  &__subitem
+  &__sublink {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1;
+    color: #999;
+    transition: color 0.3s ease;
+
+    &--current {
+      color: #000;
+      pointer-events: none;
+
+      &:hover,
+      &:focus {
+        color: #000 !important;
+      }
+
+
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #000 !important;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+
+  }
+
+  &__profile {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+
+    @include md {
+      top: 43px;
+      right: 100px;
+    }
+
+    &:hover, &:focus {
+
+      outline: none;
+
+      svg {
+        fill: $color__secondary;
+      }
+
+    }
+
+    svg {
+      fill: #000;
+      align-self: center;
+      transition: fill 0.3s ease;
+    }
+
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+
+    @include md {
+      top: 32px;
+      right: 48px;
+    }
+
+    &:hover, &:focus {
+
+      outline: none;
+
+      svg {
+        fill: $color__secondary;
+      }
+
+    }
+
+    svg {
+      fill: #000;
+      align-self: center;
+      transition: fill 0.3s ease;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+
+  }
+
+  &__bottom {
+    margin-top: auto;
+  }
+
+  &__copy {
+    margin-bottom: 16px;
+    line-height: 1.71;
+    color: #999;
+    letter-spacing: 0.015em;
+
+    @include lg {
+      margin-bottom: 4.44vh;
+    }
+
+    .search-form {
+      border-bottom: 1px solid #7C7C7C;
+      position: relative;
+    }
+
+    label {
+      width: 100%;
+    }
+
+    .search-submit {
+      position: absolute;
+      top: 3px;
+      right: 0;
+      color: transparent;
+      border: none;
+      background: transparent url(images/mag_glass.svg) no-repeat right center;
+    }
+
+
+    input[type=search] {
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      color: #7C7C7C;
+      font-size: 1.15em !important;
+    }
+
+    ::placeholder {
+      font-size: 1.15em !important;
+      color: #7C7C7C;
+    }
+
+    span {
+      color: #000;
+    }
+
+  }
+
+}
+
+.home {
+
+  header {
+
+    svg {
+      fill: #fff;
+    }
+
+    nav {
+
+      &.navbar {
+        a {
+          color: #fff;
+          font-weight: 700;
+          text-transform: uppercase;
+
+
+          &:hover {
+            color: $color__secondary
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+
+}
+
+header {
+
+  margin: 0 15px;
+
+  nav {
+
+    &.navbar {
+      a {
+        color: $color__primary;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $color__secondary
+        }
+
+      }
+    }
+
+  }
+
+  @include md {
+    margin: 0 60px;
+  }
+
+  svg {
+    fill: #000;
+  }
+
+  .header {
+
+    &_search {
+
+      text-align: center;
+
+      padding: 0 25px;
+
+    }
+
+    &_nav {
+
+      text-align: center;
+
+      padding: 0 25px;
+
+    }
+
+  }
+
+
+
+}
