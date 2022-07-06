@@ -59,6 +59,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "elements/elements";
 
 /*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+@import "layout/case-study";
+@import "layout/news";
+@import "layout/woocommerce";
+@import "layout/yith";
+@import "layout/search";
+
+/*--------------------------------------------------------------
+# ACF Blocks
+--------------------------------------------------------------*/
+@import "blocks/blocks";
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 @import "forms/forms";
@@ -107,6 +121,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Homepage
 --------------------------------------------------------------*/
 @import "pages/home";
+
+/*--------------------------------------------------------------
+# page
+--------------------------------------------------------------*/
+@import "pages/page";
+@import "pages/contact";
 
 /*--------------------------------------------------------------
 # Content

@@ -1,0 +1,27 @@
+.block__advert {
+
+  background: $color__secondary;
+  padding: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2em !important;
+    background: url(images/check.png) left center no-repeat;
+    padding-left: 60px;
+  }
+
+  p {
+    color: $color__primary;
+    font-weight: 300 !important;
+    font-size: .85em !important;
+
+    @include lg {
+      padding-left: 60px;
+    }
+  }
+
+
+}

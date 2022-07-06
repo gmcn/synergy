@@ -42,10 +42,15 @@ function starting_theme_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	add_image_size( 'tax-thumb', 550, 550, array( 'center', 'center' ) );
+	add_image_size( 'about-thumb', 700, 691, array( 'center', 'center' ) );
+	add_image_size( 'square-small', 100, 100, array( 'center', 'center' ) );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-primary' => esc_html__( 'Primary', 'starting-theme' ),
 		'menu-slider' => esc_html__( 'Slide', 'starting-theme' ),
+		'menu-sidebar' => esc_html__( 'Sidebar', 'starting-theme' ),
 		'menu-footer' => esc_html__( 'Footer', 'starting-theme' ),
 	) );
 
@@ -108,12 +113,14 @@ add_action( 'widgets_init', 'starting_theme_widgets_init' );
  */
 function starting_theme_scripts() {
 	wp_enqueue_style( 'starting-theme-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'jquery-3.5.1', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true );
+	wp_enqueue_script( 'jquery-3.5.1', 'https://code.jquery.com/jquery-3.5.1.js', array(), '3.5.1', true );
 	wp_enqueue_script( 'starting-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'fancybox-pack', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'cookieconsent', get_template_directory_uri() . '/js/cookieconsent.min.js', array(), '3.1.0', true );
 	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '6.2.0', true );
+	wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '2.1.7', true );
+	wp_enqueue_script( 'packery-mode', get_template_directory_uri() . '/js/packery-mode.pkgd.min.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'functions-js', get_template_directory_uri() . '/js/functions.js', array(), '0.1', true );
 	wp_enqueue_script( 'wow-js', get_template_directory_uri() . '/js/wow.min.js', array(), '0.1', true );
 	wp_enqueue_script( 'matchHeight-js', get_template_directory_uri() . '/js/jquery.matchHeight.js', array(), '0.7.2', true );
@@ -168,6 +175,16 @@ function new_submenu_class($menu) {
 }
 
 add_filter('wp_nav_menu','new_submenu_class');
+
+function search_filter_limit_number($query) {
+    if ( $query->is_search )
+	{
+		$query->query_vars['posts_per_page'] = 12;
+	}
+
+    return $query;
+}
+add_filter('pre_get_posts', 'search_filter_limit_number');
 
 // Make the search to index custom
 /**
@@ -227,6 +244,20 @@ add_action('login_head', 'my_custom_login');
 
 require_once get_template_directory() . '/functions/cpt_case-studies.php';
 
+//woocommerce
+
+require_once get_template_directory() . '/functions/woocommerce.php';
+
+//acf blocks
+
+require_once get_template_directory() . '/functions/acf-blocks.php';
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page();
+
+}
+
 // bootstrap 4 support
 
 /**
@@ -243,6 +274,37 @@ function cc_mime_types($mimes) {
  return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+/*removing default submit tag*/
+remove_action('wpcf7_init', 'wpcf7_add_form_tag_submit');
+/*adding action with function which handles our button markup*/
+add_action('wpcf7_init', 'twentysixteen_child_cf7_button');
+/*adding out submit button tag*/
+if (!function_exists('twentysixteen_child_cf7_button')) {
+function twentysixteen_child_cf7_button() {
+wpcf7_add_form_tag('submit', 'twentysixteen_child_cf7_button_handler');
+}
+}
+/*out button markup inside handler*/
+if (!function_exists('twentysixteen_child_cf7_button_handler')) {
+function twentysixteen_child_cf7_button_handler($tag) {
+$tag = new WPCF7_FormTag($tag);
+$class = wpcf7_form_controls_class($tag->type);
+$atts = array();
+$atts['class'] = $tag->get_class_option($class);
+$atts['class'] .= ' twentysixteen-child-custom-btn';
+$atts['id'] = $tag->get_id_option();
+$atts['tabindex'] = $tag->get_option('tabindex', 'int', true);
+$value = isset($tag->values[0]) ? $tag->values[0] : '';
+if (empty($value)) {
+$value = esc_html__('Send', 'twentysixteen');
+}
+$atts['type'] = 'submit';
+$atts = wpcf7_format_atts($atts);
+$html = sprintf('<button class="submit"><span>%2$s</span></button>', $atts, $value);
+return $html;
+}
+}
 
 // Move Yoast to bottom
 function yoasttobottom() {

@@ -1,0 +1,64 @@
+.content-row {
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  @include md {
+
+    margin-left: 60px;
+    margin-right: 60px;
+
+  }
+
+  &__block {
+
+    background: none;
+    transition: .5s;
+
+    // background: url(images/pattern_blk.png) center center / cover;
+
+
+    &__wrapper {
+
+      position: relative;
+      height: 100%;
+      transition: .5s;
+
+      padding: 25px !important;
+
+      @include md {
+        padding: 35px 35px 15px 35px !important;
+      }
+
+      @include xl {
+        padding: 50px 50px 35px 50px !important;
+      }
+
+      &:hover {
+        background: $color__secondary;
+
+        h2 {
+          color: #fff;
+        }
+
+      }
+
+    }
+
+    h2 {
+      text-transform: uppercase;
+      transition: .5s;
+      font-size: 1.2em;
+    }
+
+    p {
+      @include md {
+        width: 75%;
+      }
+    }
+
+  }
+
+}

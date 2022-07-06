@@ -1,0 +1,31 @@
+.search {
+
+  article {
+
+    img {
+      border: 1px solid #d3d3d3;
+      margin: 15px;
+    }
+
+    h2 {
+      font-size: 1em;
+      text-align: center;
+
+
+
+      a {
+
+        color: $color__primary;
+
+        &:hover {
+          color: $color__secondary;
+        }
+
+      }
+
+    }
+
+  }
+
+
+}

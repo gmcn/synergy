@@ -1,0 +1,106 @@
+.case-study {
+
+  p {
+    margin-bottom: 30px;
+    font-size: .9em;
+  }
+
+  p:first-of-type {
+    font-size: 1.25em;
+    color: #767676;
+  }
+
+  h2, h3, h4, h5 {
+    text-transform: uppercase;
+  }
+
+  &__sidebar {
+
+    padding: 50px !important;
+    background: $color__secondary;
+    color: #000;
+    position: relative;
+
+    &:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      background: url(images/pattern_large.png);
+      height: 75%;
+      width: 95%;
+    }
+
+    p.title {
+      font-size: 1.25em;
+      font-weight: 600;
+
+      &.results {
+        text-transform: uppercase;
+        font-size: 2em;
+      }
+
+    }
+
+    p {
+      color: #000 !important;
+      font-size: .9em;
+    }
+
+    a {
+
+      display: block;
+      color: #000;
+
+      &:hover {
+        color: #000;
+        text-decoration: underline;
+      }
+
+    }
+
+  }
+
+  &_gallery {
+
+    position: relative;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    margin-bottom: 45px;
+
+    @include md {
+
+      margin-left: 60px !important;
+      margin-right: 60px !important;
+
+    }
+
+    .swiper {
+      overflow: hidden;
+    }
+
+    .swiper-button-next {
+      right: 0;
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      background: rgba(255, 255, 255, .5);
+      padding: 25px !important;
+      color: #000;
+      font-size: 5px;
+
+      &:after {
+        font-size: 20px;
+      }
+
+    }
+
+  }
+
+}

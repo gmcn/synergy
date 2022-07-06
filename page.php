@@ -12,27 +12,61 @@
  * @package Starting_Theme
  */
 
-get_header(); ?>
+get_header();
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+$content = get_the_content();
+$subTitle = get_field('sub_title')
 
-			<?php
-			while ( have_posts() ) : the_post();
+?>
 
-				get_template_part( 'template-parts/content', 'page' );
+	<?php if (!is_front_page()): ?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+		<div class="page-header">
 
-			endwhile; // End of the loop.
-			?>
+			<svg class="pattern" x="0" y="0" width="100%" height="100%">
+				<defs>
+					<pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="8" patternTransform="rotate(-45 2 2)">
+					      <path d="M -1,2 l 6,0" stroke="#000000" stroke-width=".25"/>
+					</pattern>
+				</defs>
+				<rect x="1" y="1" width="100%" height="100%" stroke= "#ffffff" stroke-width="2" fill="url(#diagonalHatch)" />
+			</svg>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<div class="container" style="display: flex;">
+
+					<div class="align-self-end">
+						
+						<?php if ($subTitle): ?>
+							<p class="page-subtitle"><?php echo $subTitle ?></p>
+						<?php endif; ?>
+
+						<h1><?php echo the_title(); ?></h1>
+					</div>
+					<div class="ruler"></div>
+			</div>
+
+		</div>
+
+
+<?php if ($content): ?>
+	<div class="container page-content">
+		<?php echo the_content(); ?>
+	</div>
+<?php endif; ?>
+
+
+
+
+	<?php endif; ?>
+
+	<?php if (is_page('gallery')): ?>
+
+		<?php include('template-parts/flexi-content/gallery.php'); ?>
+
+	<?php endif; ?>
+
+	<?php include('template-parts/content-flexi.php'); ?>
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

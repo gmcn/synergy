@@ -9,22 +9,23 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" class="row" <?php //post_class(); ?>>
+
+
+	<div class="col-md-6">
+
+
 		<?php
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php starting_theme_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
 		endif; ?>
-	</header><!-- .entry-header -->
+	</div>
+
+	<div class="col-md-6">
+
+	</div>
 
 	<div class="entry-content">
 		<?php
@@ -42,6 +43,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php starting_theme_entry_footer(); ?>
+		<?php //starting_theme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -1,0 +1,42 @@
+.contact_map {
+
+  margin-bottom: 30px;
+
+  @include md {
+
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+
+
+  }
+
+  @include lg {
+    margin-bottom: 120px;
+  }
+
+}
+
+.page-contact {
+
+  h2 {
+
+    font-size: .9em;
+    margin-top: 2.5em;
+
+    &:after {
+      vertical-align: middle;
+      content: "";
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: $color__secondary;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+    }
+
+  }
+
+
+}

@@ -1,0 +1,322 @@
+.product-categories {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+
+  padding: 30px 0;
+
+  @include lg {
+    margin-left: 60px !important;
+    margin-right: 60px !important;
+
+    padding: 65px 0;
+  }
+
+  &__cat {
+
+    background: #fff;
+    position: relative;
+
+    padding-top: 40px;
+
+    &__header {
+      padding: 0 35px;
+
+      img {
+        max-height: 40px;
+        margin-bottom: 15px;
+      }
+
+
+    }
+
+    h2  {
+
+      text-transform: uppercase;
+      font-size: 1em;
+      font-weight: 700;
+      transition: .5s;
+      margin-bottom: 40px;
+
+      svg {
+        transition: .5s;
+        margin-left: 5px;
+
+        path {
+          transition: .5s;
+        }
+
+      }
+
+
+    }
+
+    a {
+
+      display: block;
+      color: #000;
+
+      img {
+        transition: .5s;
+      }
+
+      &:before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: $color__secondary;
+        height: calc(100% + 20px);
+        width: 60%;
+
+      }
+
+      &:after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: url(images/pattern_large.png);
+        background-size: cover;
+        height: calc(100% + 20px);
+        width: 60%;
+
+      }
+
+      .img_wrap {
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+
+      }
+
+      &:hover {
+
+        .img_wrap {
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+
+
+        h2  {
+
+          color: $color__secondary;
+
+          svg {
+            transition: .5s;
+            margin-left: 25px;
+
+            path {
+              fill: $color__secondary;
+            }
+
+          }
+
+
+        }
+
+      }
+
+
+
+    }
+
+
+
+  }
+
+}
+
+
+.sidebar-product-categories {
+
+  padding: 30px 0;
+
+  &__cat {
+
+    background: #fff;
+    position: relative;
+
+    // padding-top: 40px;
+
+    &__header {
+      // padding: 0 35px;
+
+      img {
+        max-height: 25px;
+        margin-bottom: 10px;
+      }
+
+
+    }
+
+    h2  {
+
+      // text-transform: uppercase;
+      font-size: .9em;
+      font-weight: 700;
+      transition: .5s;
+      margin-bottom: 20px;
+
+      svg {
+        transition: .5s;
+        margin-left: 15px;
+
+        path {
+          transition: .5s;
+        }
+
+      }
+
+
+    }
+
+    a {
+
+      display: block;
+      color: #000;
+
+      img {
+        transition: .5s;
+      }
+
+      .img_wrap {
+        overflow: hidden;
+        margin-bottom: 25px;
+        height: 120px;
+
+        img {
+          width: 100%;
+        }
+
+      }
+
+      &:hover {
+
+        .img_wrap {
+          img {
+            transform: scale(1.1);
+          }
+        }
+
+
+
+        h2  {
+
+          color: $color__secondary;
+
+          svg {
+            transition: .5s;
+            margin-left: 25px;
+
+            path {
+              fill: $color__secondary;
+            }
+
+          }
+
+
+        }
+
+      }
+
+
+
+    }
+
+
+
+  }
+
+  &__child {
+
+    margin: 0 0 30px;
+    padding: 0;
+
+
+    li {
+
+      list-style: none;
+      position: relative;
+
+      &.active {
+
+        &:before {
+
+          content: "";
+          width: 15px;
+          height: 2px;
+          display: block;
+          background: $color__secondary;
+          position: absolute;
+          left: 0;
+          top: 15px;
+          transition: .5s;
+
+        }
+
+        a {
+
+          display: block;
+          padding: 5px 0 5px 30px;
+          color: #888;
+          font-size: .9em;
+          transition: .5s;
+          font-weight: 600;
+
+        }
+
+      }
+
+      &:before {
+
+        content: "";
+        width: 0;
+        height: 2px;
+        display: block;
+        background: $color__secondary;
+        position: absolute;
+        left: 0;
+        top: 15px;
+        transition: .5s;
+
+      }
+
+      &:hover {
+
+        &:before {
+
+          width: 15px;
+
+        }
+
+      }
+
+      a {
+
+        display: block;
+        padding: 5px 0;
+        color: #888;
+        font-size: .9em;
+        transition: .5s;
+        font-weight: 400;
+
+        &:hover {
+
+          font-weight: 600;
+          padding-left: 30px;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

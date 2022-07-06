@@ -1,0 +1,28 @@
+.section-content-usp {
+
+  margin-top: 150px;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.75em;
+  }
+
+  &__usp {
+
+    .row {
+      margin-bottom: 30px;
+    }
+
+    &__copy {
+      background: $color__secondary;
+      padding: 25px !important;
+    }
+
+  }
+
+  p {
+    color: #888;
+    line-height: 1.8em;
+  }
+
+}

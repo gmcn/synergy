@@ -6,7 +6,7 @@
 // Color system
 
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
+$gray-100: transparent !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
@@ -64,7 +64,7 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $blue !default;
+$primary:       $color__secondary !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -175,7 +175,9 @@ $body-color:                $gray-900 !default;
 
 $link-color:                              theme-color("primary") !default;
 $link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
+// $link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-color:                        $color__secondary !default;
+
 $link-hover-decoration:                   underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
@@ -292,7 +294,7 @@ $font-weight-bolder:          bolder !default;
 $font-weight-base:            $font-weight-normal !default;
 $line-height-base:            1.5 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
+$h1-font-size:                $font-size-base * 3.7 !default;
 $h2-font-size:                $font-size-base * 2 !default;
 $h3-font-size:                $font-size-base * 1.75 !default;
 $h4-font-size:                $font-size-base * 1.5 !default;
@@ -301,8 +303,8 @@ $h6-font-size:                $font-size-base !default;
 
 $headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-family:        null !default;
-$headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
+$headings-font-weight:        700 !default;
+$headings-line-height:        1.25 !default;
 $headings-color:              null !default;
 
 $display1-size:               6rem !default;
@@ -717,7 +719,7 @@ $nav-divider-margin-y:              $spacer / 2 !default;
 $navbar-padding-y:                  $spacer / 2 !default;
 $navbar-padding-x:                  $spacer !default;
 
-$navbar-nav-link-padding-x:         .5rem !default;
+$navbar-nav-link-padding-x:         1rem !default;
 
 $navbar-brand-font-size:            $font-size-lg !default;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
@@ -968,7 +970,7 @@ $modal-header-padding:              $modal-header-padding-y $modal-header-paddin
 $modal-xl:                          1140px !default;
 $modal-lg:                          800px !default;
 $modal-md:                          500px !default;
-$modal-sm:                          300px !default;
+$modal-sm:                          350px !default;
 
 $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              none !default;

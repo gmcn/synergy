@@ -1,0 +1,280 @@
+.news {
+
+  &-articles {
+
+    margin-top: 30px;
+
+    @include md {
+      margin-top: 75px;
+    }
+
+    @include lg {
+      margin-top: 150px;
+    }
+
+
+
+    &__posttitle {
+
+      padding: 50px 30px !important;
+
+      @include lg {
+        padding: 100px 30px !important;
+      }
+
+      span {
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .entry-title {
+
+        a {
+          color: #000;
+
+          &:hover {
+            color: $color__secondary;
+          }
+
+        }
+
+      }
+
+    }
+
+    &__postimg {
+
+      &:hover {
+
+
+        a {
+          opacity: 1;
+        }
+
+        svg {
+          margin-left: 15px;
+        }
+
+      }
+
+      a {
+        opacity: 0;
+        transition: .5s;
+        color: #000 !important;
+        font-weight: 400;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: rgba(255, 255, 255, .8);
+        font-size: 1.25em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 5px solid $color__secondary;
+
+        svg {
+          margin-left: 5px;
+          transition: .5s;
+        }
+
+        span {
+          position: relative;
+          float: left;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+      }
+
+
+
+
+
+    }
+
+    h1, h2 {
+
+      font-size: 1.4em;
+      margin-bottom: 30px;
+
+    }
+
+    p {
+
+      color: #6B6B6B;
+
+    }
+
+    p.byline {
+
+      color: #AAAAAA;
+      font-size: .9em;
+
+      span {
+        color: #6A6A6A;
+      }
+
+    }
+
+      a.more {
+
+        background: #fff;
+        color: #000;
+        font-size: 18px;
+        position: relative;
+        z-index: 10;
+        border: 4px solid $color__secondary;
+        border-radius: 0;
+        transition: .5s;
+        margin-top: 30px;
+        display: inline;
+        // float: left;
+        padding: 15px 40px;
+        background: #fff;
+        clear: both;
+
+
+
+        &:before {
+
+      		transition: .5s;
+      		width: calc(100% + 5px);
+      		height: calc(100% + 5px);
+      		position: absolute;
+      		bottom: -20px;
+      		right: -20px;
+      		background: url(images/pattern_blk.png);
+      		content: "";
+      		z-index: -10 !important;
+
+
+      	}
+
+        &:hover {
+
+          background: $color__secondary;
+          color: #fff;
+
+          &:before {
+
+            bottom: -1px;
+            right: -1px;
+
+          }
+
+        }
+
+      }
+
+
+
+
+  }
+
+
+}
+
+
+.latest-news-grid {
+
+  margin-top: 75px;
+  margin-bottom: 75px;
+
+  @include md {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  @include lg {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+
+  &__entry {
+
+    height: 395px;
+    width: 33%;
+    float: left;
+
+    // &:nth-of-type(2), &:nth-of-type(5) {
+    //   margin-top: 25px;
+    //   position: relative;
+    //   // height: 370px;
+    // }
+
+    &:hover {
+
+      .details {
+        opacity: 1
+      }
+
+    }
+
+    .details {
+      border: 10px solid $color__secondary;
+      transition: .5s;
+      z-index: 10;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      padding: 40px;
+      text-align: left;
+
+      &__title {
+        font-weight: 700;
+        margin-bottom: 25px;
+        font-size: 1.1em;
+      }
+
+      &__excerpt {
+        font-size: .9em;
+      }
+
+      a {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        color: #000;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-bottom: 5px solid $color__secondary;
+
+        &:hover {
+          color: $color__secondary;
+          border-bottom: 5px solid #000;
+
+          svg {
+            margin-right: 10px;
+
+            path {
+              fill: $color__secondary
+            }
+          }
+
+        }
+
+        svg {
+          height: 14px;
+          transition: .5s;
+
+          path {
+            transition: .5s;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

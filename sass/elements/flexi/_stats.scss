@@ -1,0 +1,84 @@
+.stats {
+
+  margin: 40px;
+
+  @include md {
+    margin: 75px;
+  }
+
+  @include lg {
+    margin: 150px;
+  }
+
+  &__header {
+
+    @include lg {
+      margin-left: -75px;
+    }
+
+    h2 {
+      // background: #fff;
+      font-weight: 700;
+      margin-bottom: 30px;
+
+      @include md {
+        font-size: 48px;
+        width: 75%;
+      }
+
+      svg {
+        margin-bottom: 50px;
+        float: left;
+        margin-right: 25px;
+        margin-top: 25px;
+      }
+
+      span {
+
+        // display: inline-block;
+        border-bottom: 5px solid $color__secondary;
+
+      }
+
+    }
+
+  }
+
+  &__wrap {
+
+    &:hover {
+
+      p.stat {
+        color: $color__secondary;
+      }
+
+    }
+
+    p.stat {
+      font-weight: 700;
+      transition: .5s;
+      margin-bottom: 0;
+      text-transform: none;
+      width: 100%;
+
+      font-size: 2em;
+
+      @include md {
+
+        font-size: 3.5em;
+
+      }
+    }
+
+    p {
+      text-transform: uppercase;
+
+      @include lg {
+        width: 50%;
+      }
+
+    }
+
+  }
+
+}

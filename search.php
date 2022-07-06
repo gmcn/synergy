@@ -9,15 +9,18 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+
 
 		<?php
 		if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<div class="page-header">
 				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'starting-theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+			</div><!-- .page-header -->
+
+			<div class="container" style="clear: both">
+
+				<div class="row">
 
 			<?php
 			/* Start the Loop */
@@ -32,7 +35,12 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination( array(
+			   'mid_size' => 2,
+			   'prev_text' => __( 'Previous Page', 'textdomain' ),
+			   'next_text' => __( 'Next Page', 'textdomain' ),
+			   'screen_reader_text' => ( '' )
+			) );
 
 		else :
 
@@ -40,9 +48,9 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</div>
+
+		</div>
 
 <?php
-get_sidebar();
 get_footer();

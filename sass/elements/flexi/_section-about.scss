@@ -1,0 +1,170 @@
+.section-about {
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  @include md {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+
+  @include lg {
+    margin-top: 110px;
+    margin-bottom: 110px;
+  }
+
+  &__header {
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    @include md {
+      margin-bottom: 45px;
+    }
+
+    @include lg {
+      margin-bottom: 90px;
+    }
+
+
+    p.subtitle {
+
+      text-transform: uppercase;
+      color: $color__secondary;
+      font-size: 1.4em;
+      font-weight: 700;
+
+    }
+
+    h2 {
+      background: #fff;
+      font-weight: 700;
+      margin-bottom: 30px;
+      font-size: 55px;
+
+      width: 75%;
+
+      @include md {
+        width: 45%;
+      }
+
+    }
+
+    a.viewall {
+
+      text-transform: uppercase;
+      font-size: 1.5em;
+
+      @include md {
+
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+      }
+
+    }
+
+    &:after {
+
+      @include md {
+        position: absolute;
+        bottom: 10px;
+        height: 2px;
+        background: #000;
+        z-index: -1;
+        width: calc(100% - 35px);
+        content: "";
+      }
+
+
+
+    }
+
+  }
+
+
+
+  h3 {
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  &_img {
+
+    width: 100%;
+    position: relative;
+    z-index: -2;
+
+  }
+
+  &_copy {
+    background-color: $color__secondary;
+    padding: 25px !important;
+    font-size: .8em;
+    line-height: 2em;
+    position: relative;
+
+    @include md {
+      margin-left: -130px;
+      padding: 50px !important;
+    }
+
+    &:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      background: url(images/pattern.png);
+      height: 90%;
+      width: 25%;
+    }
+
+    a.button {
+      box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, .3);
+      background: #000;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 15px 25px;
+      font-size: 20px;
+      border: 4px solid #000;
+      display: inline-block;
+      margin-top: 25px;
+
+      @include md {
+        margin-top: 0;
+        position: absolute;
+        bottom: -25px;
+        left: 50px;
+
+      }
+
+      svg {
+        height: 10px;
+        path {
+          fill: #fff;
+
+        }
+      }
+
+      &:hover {
+
+        background: #fff;
+        color: #000;
+        // border: 4px solid #000;
+
+        svg {
+          path {
+            fill: #000;
+
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}

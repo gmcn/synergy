@@ -1,0 +1,186 @@
+.section-testimonials {
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 110px 0;
+
+  margin: 25px 15px;
+
+  @include md {
+    margin: 55px 15px;
+  }
+
+  @include lg {
+
+    margin: 110px 60px;
+
+  }
+
+
+  &__header {
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    @include md {
+      margin-bottom: 45px;
+    }
+
+    @include lg {
+      margin-bottom: 90px;
+    }
+
+
+    p.subtitle {
+
+      text-transform: uppercase;
+      color: $color__secondary;
+      font-size: 1.4em;
+      font-weight: 700;
+
+    }
+
+    h2 {
+      background: #fff;
+      font-weight: 700;
+      margin-bottom: 30px;
+      font-size: 55px;
+
+      width: 75%;
+
+      @include md {
+        width: 30%;
+      }
+
+    }
+
+    &:after {
+
+      @include md {
+        position: absolute;
+        bottom: 10px;
+        height: 2px;
+        background: #000;
+        z-index: -1;
+        width: calc(100% - 35px);
+        content: "";
+      }
+
+
+
+    }
+
+  }
+
+  .swiper-pagination {
+
+    &-bullet {
+      background: #D2D2D2;
+      margin: 4px;
+
+
+      &-active {
+        transition: .5s;
+        background: #fff;
+        transform: rotate(45deg);
+        border: 3px solid $color__secondary
+      }
+
+    }
+
+
+
+  }
+
+  &__testimonial {
+
+    border: 1px solid #D1D1D1;
+    padding: 25px 40px;
+    background: #fff url(images/quotes.svg) no-repeat 90% 90%;
+    transition: .5s;
+    margin-bottom: 25px;
+    position: relative;
+
+    &:after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      background: url(images/pattern_large.png);
+      height: 90%;
+      width: 90%;
+    }
+
+    &:hover {
+
+      background: $color__secondary url(images/quotes_white.svg) no-repeat 90% 90%;
+
+    }
+
+    p {
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: #000;
+
+      svg {
+        margin-left: 15px;
+        transition: .5s;
+      }
+
+      &:hover {
+
+        color: #000;
+
+      }
+
+    }
+
+  }
+
+  &__details {
+
+    p.testimonal_byline {
+
+      font-weight: 700;
+      padding-top: 20px;
+      margin-bottom: 10px;
+
+    }
+
+    p {
+      font-size: .9em;
+    }
+
+    .img_wrap {
+
+      position: relative;
+      height: 100px;
+      width: 100px;
+      float: left;
+      margin-right: 50px;
+
+      &:after {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        background: #fff;
+        height: 100%;
+        border: 10px solid $color__secondary;
+        width: 100%;
+
+      }
+
+    }
+
+
+  }
+
+}

@@ -247,12 +247,12 @@
   transform: scale(0.33);
 }
 .swiper-pagination-bullet {
-  width: 11px;
-  height: 11px;
+  width: 16px;
+  height: 16px;
   display: inline-block;
-  border-radius: 100%;
+  // border-radius: 100%;
   background: #fff;
-  opacity: 0.8;
+  // opacity: 0.8;
 }
 button.swiper-pagination-bullet {
   border: none;
@@ -268,7 +268,7 @@ button.swiper-pagination-bullet {
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #DB0812;
+  background: $color__secondary;
 }
 .swiper-container-vertical > .swiper-pagination-bullets {
   right: 10px;
@@ -289,9 +289,10 @@ button.swiper-pagination-bullet {
   transition: 200ms transform, 200ms top;
 }
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 4px;
+  // margin: 4px;
+
   @include md {
-    margin: 10px 4px;
+    // margin: 10px 4px;
   }
 
 }
@@ -349,15 +350,17 @@ button.swiper-pagination-bullet {
 }
 /* Scrollbar */
 .swiper-scrollbar {
-  border-radius: 10px;
+  // border-radius: 10px;
   position: relative;
   -ms-touch-action: none;
   background: rgba(0, 0, 0, 0.1);
 }
 .swiper-container-horizontal > .swiper-scrollbar {
-  position: absolute;
-  left: 1%;
-  bottom: 3px;
+  // position: absolute;
+  margin: 0 auto;
+  // left: 1%;
+  max-width: 1024px;
+  // bottom: 3px;
   z-index: 50;
   height: 5px;
   width: 98%;
@@ -374,8 +377,8 @@ button.swiper-pagination-bullet {
   height: 100%;
   width: 100%;
   position: relative;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  background: rgba($color__secondary, 1);
+  // border-radius: 10px;
   left: 0;
   top: 0;
 }
