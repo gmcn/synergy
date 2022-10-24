@@ -13,6 +13,31 @@
 
 	</div><!-- #content -->
 
+	<?php if (is_product()) : ?>
+
+
+		<div class="cta-bar">
+
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-lg-7 cta-bar_copy">
+		        <p class="cta-bar_header wow fadeIn">SYNERGY CREATIV NEWSLETTER</p>
+		        <p class="wow fadeIn">Subscribe to the Synergy newsletter today for new product information, special offers, hints and tips, plus broader lighting industry news.</p>
+		      </div>
+		      <div class="col-lg-5 cta-bar_link align-self-center">
+
+
+		        <a class="button wow fadeIn" href="/newsletter" target="_self" style="visibility: visible; animation-name: fadeIn;">Sign Me Up!</a>
+
+		      </div>
+		    </div>
+		  </div>
+
+		</div>
+
+
+	<?php endif; ?>
+
 	<footer class="site-footer" role="contentinfo">
 
 		<svg class="pattern" x="0" y="0" width="100%" height="100%">
@@ -34,7 +59,7 @@
 					</div>
 					<div class="footer_branding__copy">
 
-						The Synergy range has been configured to aid compliance with all major UK and EU office lighting guidelines, giving you total peace of mind when specifying light fittings. You and your clients come first, Synergy will delight you and your clients by realising your vision, enhancing your brand and providing a competitive advantage.
+						<?php the_field('footer_about', 'option'); ?>
 
 					</div>
 				<!-- </div> -->
@@ -61,8 +86,15 @@
 						<h5>Call Us</h5>
 						<p>Tel: <a href="tel:01992 445828" target="_blank">01992 445828</a></p>
 
-						<img src="<?php echo get_template_directory_uri(); ?>/images/iso_9001.png" alt="ISO 9001">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/iso_14001.png" alt="ISO 14001">
+						<?php $footer_accreditations_img = get_field('footer_accreditations_img', 'option'); ?>
+
+						<?php
+						if( !empty( $footer_accreditations_img ) ): ?>
+						    <img src="<?php echo esc_url($footer_accreditations_img['url']); ?>" alt="<?php echo esc_attr($footer_accreditations_img['alt']); ?>" />
+						<?php endif; ?>
+
+						<!-- <img src="<?php echo get_template_directory_uri(); ?>/images/iso_9001.png" alt="ISO 9001">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/iso_14001.png" alt="ISO 14001"> -->
 					</div>
 					<div class="col-md-4">
 						<h5>Lets Talk</h5>
@@ -70,16 +102,25 @@
 							Unit 4, Charlton Mead Lane, <br>
 							Hoddesdon, <br>
 							Hertfordshire EN11 0DJ
+							<a rel="noreferrer" href="https://goo.gl/maps/BjNkmCPcbpfmDF9g8" target="_blank">View on map</a>
 						</address>
-						<a rel="noreferrer" href="https://goo.gl/maps/BjNkmCPcbpfmDF9g8" target="_blank">View on map</a>
+
 					</div>
 					<div class="col-md-4">
 						<h5>Showroom</h5>
 						<address class="">
 							121-131 Rosebery Ave<br>
 							London EC1R 4RF
+							<a rel="noreferrer" href="https://goo.gl/maps/7r2BxJhGLc5fNaJR6" target="_blank">View on map</a>
 						</address>
-						<a rel="noreferrer" href="https://g.page/design-hub-clerkenwell?share" target="_blank">View on map</a>
+
+
+						<address class="">
+							1 New York Street,<br>
+							Manchester M1 4HD
+							<a rel="noreferrer" href="https://goo.gl/maps/M3gUeHAyoKnLaT9i6" target="_blank">View on map</a>
+						</address>
+
 					</div>
 				</div>
 				<hr>
@@ -126,6 +167,31 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<?php $user_info = get_userdata(get_current_user_id());
+      $username = $user_info->user_login;
+      $first_name = $user_info->first_name;
+      $last_name = $user_info->last_name;
+			$company_name = $user_info->billing_company;
+			$email = $user_info->billing_email;
+			$phone = $user_info->billing_phone;
+
+			// echo $username . $first_name . $last_name . $email . $phone . $company_name;
+
+
+?>
+
+	<script type="text/javascript">php
+		document.getElementById("first_name").value = '<?php echo $first_name ?>';
+		document.getElementById("last_name").value = '<?php echo $last_name ?>';
+		document.getElementById("company_name").value = '<?php echo $company_name ?>';
+		document.getElementById("email").value = '<?php echo $email ?>';
+		document.getElementById("tel_no").value = '<?php echo $phone ?>'	;
+	</script>
+
+
+
+
 
 </body>
 
