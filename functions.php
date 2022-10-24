@@ -240,6 +240,24 @@ echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_
 }
 add_action('login_head', 'my_custom_login');
 
+
+
+/**
+ * WordPress function for redirecting users on login based on user role
+ */
+function wpdocs_my_login_redirect( $url, $request, $user ) {
+    if ( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
+        if ( $user->has_cap( 'administrator' ) ) {
+            $url = admin_url();
+        } else {
+            $url = $_SERVER['HTTP_REFERER'];
+        }
+    }
+    return $url;
+}
+
+add_filter( 'login_redirect', 'wpdocs_my_login_redirect', 10, 3 );
+
 //Case Studies CPT
 
 require_once get_template_directory() . '/functions/cpt_case-studies.php';
