@@ -55,7 +55,26 @@ if ( $product->is_in_stock() ) : ?>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
 
-	<a class="button" href="/contact/" target="_self" >Enquire</a>
+	<!-- <a class="button" href="/contact/" target="_self" > -->
+
+	<!-- <a class="button" data-toggle="modal" data-target=".enquire-form-sm">
+		Enquire
+	</a>
+
+
+	<div class="modal fade enquire-form-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalEnquiry" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content enquiryform">
+
+				<p><strong>Enquire About -- <?php echo the_title() ?></strong></p>
+
+				<?php echo do_shortcode('[contact-form-7 id="2923" title="Product Enquiry Form"]') ?>
+
+			</div>
+		</div>
+	</div> -->
+
+
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 

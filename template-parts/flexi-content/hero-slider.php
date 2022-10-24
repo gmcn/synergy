@@ -6,8 +6,19 @@
     $hero_slider_image = get_sub_field('hero_slider_image');
     $hero_slider_video = get_sub_field('hero_slider_video');
     $hero_slider_sub_title = get_sub_field('hero_slider_sub_title');
-    $hero_slider_main_title = get_sub_field('hero_slider_main_title');
+    // $hero_slider_main_title = get_sub_field('hero_slider_main_title');
+
+
+    $hero_slider_main_title_one = get_sub_field('slide_main_title_line_one');
+    $hero_slider_main_title_two = get_sub_field('slide_main_title_line_two');
+    $hero_slider_main_title_three = get_sub_field('slide_main_title_line_three');
+
+
     $hero_slider_description = get_sub_field('hero_slider_description');
+
+    $hero_slider_description_one = get_sub_field('hero_slider_description_one');
+    $hero_slider_description_two = get_sub_field('hero_slider_description_two');
+    $hero_slider_description_three = get_sub_field('hero_slider_description_three');
 
 
     ?>
@@ -23,15 +34,45 @@
       <div class="swiper-slide__content align-self-center">
 
         <div class="container">
-          <h1>
+
+          <?php if ($hero_slider_main_title_one): ?>
+            <h1>
+              <span>
+                <?php echo $hero_slider_main_title_one; ?>
+              </span>
+            </h1>
+          <?php endif; ?>
+
+          <?php if ($hero_slider_main_title_two): ?>
+            <h1>
+              <span>
+                <?php echo $hero_slider_main_title_two; ?>
+              </span>
+            </h1>
+          <?php endif; ?>
+
+          <?php if ($hero_slider_main_title_three): ?>
+            <h1>
+              <span>
+                <?php echo $hero_slider_main_title_three; ?>
+              </span>
+            </h1>
+          <?php endif; ?>
 
 
-            <span><?php echo $hero_slider_main_title ?></span>
+          <!-- <h1><span><?php //echo $hero_slider_main_title ?></span></h1> -->
 
+          <p class="d-none d-md-block">
+            <span><?php echo $hero_slider_description_one ?></span>
+          </p>
 
-          </h1>
+          <p class="d-none d-md-block">
+            <span><?php echo $hero_slider_description_two ?></span>
+          </p>
 
-          <p class="d-none d-md-block"><span><?php echo $hero_slider_description ?></span></p>
+          <p class="d-none d-md-block">
+            <span><?php echo $hero_slider_description_three ?></span>
+          </p>
 
           <?php
             $link = get_sub_field('hero_slider_link');
@@ -63,7 +104,7 @@
   <div class="swiper-pagination duplicate"></div>
 
   <a href="#product-categories">
-    <img class="scroll" src="<?php echo get_template_directory_uri(); ?>/images/scroll-icon.png" alt="">
+    <img class="scroll wow bounce infinite" src="<?php echo get_template_directory_uri(); ?>/images/scroll-icon.png" alt="">
   </a>
 
 

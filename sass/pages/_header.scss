@@ -67,6 +67,24 @@ ul.nav li.menu-item-has-children:hover > ul.dropdown-menu {
 header {
   position: relative;
   z-index: 999;
+
+
+  .navbar-brand {
+
+    img {
+
+      max-height: 75px;
+
+      @include md {
+        max-height: 100%;
+      }
+
+    }
+
+
+  }
+
+
 }
 
 .menu-toggle--opened::before {
@@ -427,9 +445,17 @@ header {
 
   header {
 
-    position: absolute;
+    margin: 0;
 
-    width: 100%;
+    background: #000;
+
+    @include lg {
+      position: absolute;
+      background: transparent;
+      width: 100%;
+    }
+
+
 
     @include lg {
       width: calc(100% - 120px);

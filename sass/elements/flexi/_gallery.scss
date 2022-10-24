@@ -358,6 +358,27 @@
 .gallery-item {
 	// padding: 2.5px;
 
+	@keyframes hideshow {
+
+
+		0% {
+    opacity: .25;
+	  }
+
+		50% {
+    opacity: .7;
+	  }
+
+	  100% {
+	    opacity: .25;
+	  }
+
+}
+
+.hideshow {
+	animation: hideshow 2s infinite;
+}
+
   a.open-modal {
 
     position: absolute;

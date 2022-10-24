@@ -24,7 +24,7 @@
           <div class="wow fadeInUp">
 
             <div class="sidebar-product-categories__cat">
-              <a href="<?php echo get_term_link( $term ); ?>">
+              <a href="<?php echo get_term_link( $term ); ?>#anchor-point">
 
 
                 <div class="img_wrap">
@@ -81,12 +81,12 @@
           $url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
           $args = array(
-         'hierarchical' => 1,
-         'show_option_none' => '',
-         'hide_empty' => 0,
-         'parent' => $term->term_id,
-         'taxonomy' => 'product_cat'
-      ); ?>
+             'hierarchical' => 1,
+             'show_option_none' => '',
+             'hide_empty' => 0,
+             'parent' => $term->term_id,
+             'taxonomy' => 'product_cat'
+          ); ?>
 
 
       <?php
@@ -105,7 +105,7 @@
               }
               echo '"><a href="';
               echo $link;
-              echo '">';
+              echo '#anchor-point">';
               echo $sc->name;
               echo '</a></li>';
               // echo $url;

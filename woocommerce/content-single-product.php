@@ -259,22 +259,3 @@ if ( post_password_required() ) {
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-
-<div class="cta-bar">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7 cta-bar_copy">
-        <p class="cta-bar_header wow fadeIn">SYNERGY CREATIV NEWSLETTER</p>
-        <p class="wow fadeIn">Subscribe to the Synergy newsletter today for new product information, special offers, hints and tips, plus broader lighting industry news.</p>
-      </div>
-      <div class="col-lg-5 cta-bar_link align-self-center">
-
-
-        <a class="button wow fadeIn" href="/newsletter" target="_self" style="visibility: visible; animation-name: fadeIn;">Sign Me Up!</a>
-
-      </div>
-    </div>
-  </div>
-
-</div>

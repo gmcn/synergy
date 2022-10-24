@@ -31,7 +31,13 @@ if ( ! $short_description ) {
 <div class="woocommerce-product-details__short-description">
 	<?php echo $short_description; // WPCS: XSS ok. ?>
 
-	<?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
+	<?php if (is_user_logged_in()): ?>
+
+		<?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
+
+	<?php endif; ?>
+
+
 
 	<?php if ( have_rows('downloads') ): ?>
 	    <?php while ( have_rows('downloads') ) : the_row();

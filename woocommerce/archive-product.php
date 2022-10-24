@@ -112,6 +112,8 @@ $queried_object = get_queried_object();
 
 </div>
 
+<a name="anchor-point"></a> 
+
 <div class="container">
 
 	<div class="row">

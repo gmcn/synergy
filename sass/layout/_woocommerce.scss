@@ -13,6 +13,14 @@
 
 }
 
+.enquiryform {
+
+  border: 0;
+
+  padding: 25px;
+
+}
+
 .woocommerce {
 
   .products {
@@ -169,7 +177,7 @@
           position: absolute;
           bottom: -1px;
           right: -1px;
-          background: url(images/pattern_blk.png);
+          background: url(images/pattern_blk.png) center center / cover;
           content: "";
           z-index: -1;
         }
@@ -184,7 +192,7 @@
         position: absolute;
         bottom: -20px;
         right: -20px;
-        background: url(images/pattern_blk.png);
+        background: url(images/pattern_blk.png) center center / cover;
         content: "";
         z-index: -1;
       }
@@ -353,6 +361,10 @@
 
   .woocommerce-product-details__short-description {
 
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
     p {
       color: #636363;
     }
@@ -434,7 +446,7 @@
     		position: absolute;
     		bottom: -20px;
     		right: -20px;
-    		background: url(images/pattern_blk.png);
+    		background: url(images/pattern_blk.png) center center / cover;
     		content: "";
     		z-index: -1;
 
@@ -482,7 +494,7 @@
       position: absolute;
       bottom: -20px;
       right: -20px;
-      background: url(images/pattern_blk.png);
+      background: url(images/pattern_blk.png) center center / cover;
       content: "";
       z-index: -1;
 
@@ -493,9 +505,7 @@
 
   .yith-wcwl-add-button {
 
-    border-bottom: 1px solid #000;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+
 
     a {
       color: #000;
@@ -704,7 +714,7 @@
     font-weight: 600;
     color: #000;
     display: block;
-    margin-bottom: 15px
+    margin-top: 15px
   }
 
   a {

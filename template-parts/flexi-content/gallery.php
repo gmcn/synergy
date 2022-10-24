@@ -75,7 +75,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="76.72" height="76.72" viewBox="0 0 76.72 76.72">
                       <g id="Group_13" data-name="Group 13" transform="translate(-1696.64 -1121.64)">
                         <g id="arrow_copy_2" data-name="arrow copy 2" transform="translate(-57 -55)">
-                          <circle id="Ellipse_1_copy" data-name="Ellipse 1 copy" cx="38.36" cy="38.36" r="38.36" transform="translate(1753.64 1176.64)" fill="#fff" opacity="0.451"/>
+                          <circle id="Ellipse_1_copy" class="hideshow" data-name="Ellipse 1 copy" cx="38.36" cy="38.36" r="38.36" transform="translate(1753.64 1176.64)" fill="#fff" opacity="0.451"/>
                           <circle id="Ellipse_1" data-name="Ellipse 1" cx="27" cy="27" r="27" transform="translate(1765 1188)" fill="#fff"/>
                         </g>
                         <path id="arrow-right-thin" d="M21.883,12l-7.527,6.235L15,19l9-7.521L15,4l-.645.764L21.884,11H0v1H21.883Z" transform="translate(1723 1149)" stroke="#000" stroke-width="1" fill-rule="evenodd"/>
