@@ -84,11 +84,25 @@
 
 					<?php echo do_shortcode('[yith_ywraq_number_items]'); ?>
 
-					<a data-toggle="modal" data-target=".bd-example-modal-sm">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24.569" height="25.933" viewBox="0 0 24.569 25.933">
-					  <path id="Path_112" data-name="Path 112" d="M12.285,28.04a7.02,7.02,0,1,0-7.02-7.02A7.019,7.019,0,0,0,12.285,28.04Zm4.914-.391h-.916a9.547,9.547,0,0,1-8,0H7.371A7.373,7.373,0,0,0,0,35.019V37.3a2.633,2.633,0,0,0,2.632,2.632h19.3A2.633,2.633,0,0,0,24.569,37.3V35.019A7.373,7.373,0,0,0,17.2,27.648Z" transform="translate(0 -14)"></path>
-					</svg>
-				</a>
+					<?php if (is_user_logged_in()): ?>
+
+						<a href="/my-account">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24.569" height="25.933" viewBox="0 0 24.569 25.933">
+								<path id="Path_112" data-name="Path 112" d="M12.285,28.04a7.02,7.02,0,1,0-7.02-7.02A7.019,7.019,0,0,0,12.285,28.04Zm4.914-.391h-.916a9.547,9.547,0,0,1-8,0H7.371A7.373,7.373,0,0,0,0,35.019V37.3a2.633,2.633,0,0,0,2.632,2.632h19.3A2.633,2.633,0,0,0,24.569,37.3V35.019A7.373,7.373,0,0,0,17.2,27.648Z" transform="translate(0 -14)"></path>
+							</svg>
+						</a>
+
+					<?php else: ?>
+
+						<a data-toggle="modal" data-target=".bd-example-modal-sm">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24.569" height="25.933" viewBox="0 0 24.569 25.933">
+							<path id="Path_112" data-name="Path 112" d="M12.285,28.04a7.02,7.02,0,1,0-7.02-7.02A7.019,7.019,0,0,0,12.285,28.04Zm4.914-.391h-.916a9.547,9.547,0,0,1-8,0H7.371A7.373,7.373,0,0,0,0,35.019V37.3a2.633,2.633,0,0,0,2.632,2.632h19.3A2.633,2.633,0,0,0,24.569,37.3V35.019A7.373,7.373,0,0,0,17.2,27.648Z" transform="translate(0 -14)"></path>
+						</svg>
+					</a>
+
+					<?php endif; ?>
+
+
 
 
 	      </div>
@@ -110,7 +124,7 @@
 					<div class="col-md-10 offset-md-1">
 						<form role="search" method="get" class="search-form" action="/">
 								<span class="screen-reader-text">Search for:</span>
-								<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+								<input type="search" class="search-field search-field__head" placeholder="Search …" value="" name="s">
 							<input type="submit" class="search-submit" value="">
 						</form>
 					</div>
@@ -126,7 +140,7 @@
 		<div class="modal-dialog modal-dialog-centered modal-sm">
 			<div class="modal-content loginform">
 
-				<form name="loginform" id="loginform" action="/wp-login.php" method="post">
+				<form name="loginform" id="loginform" action="<?php echo esc_url( wp_login_url( home_url() ) ); ?>" method="post">
 
 					<p><strong>Log into you account</strong></p>
 
@@ -159,7 +173,7 @@
 
 				<!-- <div class="row"> -->
 					<div class="col-lg-12 account_reg">
-						<p>Don't have an account <a href="/account-registration/">Sign Up Now</a> </p>
+						<p>Don't have an account <a href="/my-account/">Sign Up Now</a> </p>
 					</div>
 				<!-- </div> -->
 
@@ -223,6 +237,15 @@
 
 				<li> <a href="/request-quote/">Quote Request</a> </li>
 				<li> <a href="/wishlist/">Favourite Products</a> </li>
+
+
+				<?php if (is_user_logged_in()): ?>
+
+					<li> <a href="<?php echo wp_logout_url( home_url() ); ?>" >Logout</a> </li>
+
+				<?php endif; ?>
+
+
 			</ul>
 		</div>
 

@@ -6,6 +6,13 @@
   $("#block-4 div.wp-block-group__inner-container:contains(' '), #block-4 div.wp-block-group__inner-container:empty").closest('#block-4').hide();
 
   /**
+   * move cursor into a input text box by opening search
+   */
+  $( ".open" ).click(function() {
+    $( ".search-field__head" ).focus();
+  });
+
+  /**
    * Match Height (Including Safari onload fix)
    */
   function startMatchHeight() {
@@ -149,6 +156,15 @@ function setOverlay(cb) {
 
 var heroSwiper = new Swiper('.heroSwiper', {
   loop: true,
+  speed: 2500,
+  paginationClickable: true,
+  autoplay: {
+
+    delay: 2500,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+
+  },
   pagination: {
     el: ".swiper-pagination",
   },
@@ -292,7 +308,7 @@ window.cookieconsent.initialise({
     "message": "This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.",
     "dismiss": "Close This",
     "link": "Find out more",
-    "href": "data-policy"
+    "href": "privacy-policy"
   }
 });
 
